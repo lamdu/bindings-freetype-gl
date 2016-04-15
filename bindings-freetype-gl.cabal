@@ -1,0 +1,63 @@
+name:                bindings-freetype-gl
+version:             0.1.0.0
+synopsis:            Haskell bindings and embedding of freetype-gl
+description:         Please see README.md
+homepage:            https://github.com/Peaker/bindings-freetype-gl#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Eyal Lotem
+maintainer:          eyal.lotem@gmail.com
+copyright:           2016 Eyal Lotem
+category:            Graphics, Fonts, Bindings
+build-type:          Custom
+extra-source-files:  README.md
+
+data-files:          freetype-gl/shaders/cube.frag
+                   , freetype-gl/shaders/cube.vert
+                   , freetype-gl/shaders/distance-field-2.frag
+                   , freetype-gl/shaders/distance-field.frag
+                   , freetype-gl/shaders/distance-field.vert
+                   , freetype-gl/shaders/text.frag
+                   , freetype-gl/shaders/text.vert
+                   , freetype-gl/shaders/v3f-c4f.frag
+                   , freetype-gl/shaders/v3f-c4f.vert
+                   , freetype-gl/shaders/v3f-t2f-c4f.frag
+                   , freetype-gl/shaders/v3f-t2f-c4f.vert
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     Bindings.FreetypeGL.Paths
+                     , Bindings.FreetypeGL.TextBuffer
+                     , Bindings.FreetypeGL.Vec234
+                     , Bindings.FreetypeGL.Mat4
+                     , Bindings.FreetypeGL.Markup
+                     , Bindings.FreetypeGL.Shader
+                     , Bindings.FreetypeGL.FontManager
+                     , Bindings.FreetypeGL.TextureFont
+                     , Bindings.FreetypeGL.TextureAtlas
+                     , Bindings.FreetypeGL.Vector
+                     , Bindings.GLEW.Init
+  other-modules:       Paths_bindings_freetype_gl
+  build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2
+  default-language:    Haskell2010
+  extra-libraries:     GLEW
+  ghc-options:         -Wall
+  include-dirs:        freetype-gl/
+  cc-options:          -g -Wall
+
+  c-sources:           freetype-gl/texture-atlas.c
+                     , freetype-gl/texture-font.c
+                     , freetype-gl/text-buffer.c
+                     , freetype-gl/font-manager.c
+                     , freetype-gl/vector.c
+                     , freetype-gl/mat4.c
+                     , freetype-gl/shader.c
+                     , freetype-gl/utf8-utils.c
+                     , freetype-gl/vertex-buffer.c
+                     , freetype-gl/vertex-attribute.c
+                     , freetype-gl/platform.c
+                     , cbits/wrappers.c
+
+source-repository head
+  type:     git
+  location: https://github.com/Peaker/bindings-freetype-gl

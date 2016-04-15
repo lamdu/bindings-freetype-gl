@@ -1,0 +1,3 @@
+:set -optP-include -optPdist/build/autogen/cabal_macros.h
+:set -idist/build/autogen
+:set -Wall
