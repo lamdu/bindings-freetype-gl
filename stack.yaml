@@ -1,0 +1,8 @@
+resolver: lts-5.13
+
+packages:
+- '.'
+- location:
+    git: https://github.com/Peaker/freetype2
+    commit: b6b3f82b9f8acb925d8f36ecc1520832ad256444
+extra-deps: []
