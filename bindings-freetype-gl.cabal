@@ -36,11 +36,13 @@ library
                      , Bindings.FreetypeGL.TextureFont
                      , Bindings.FreetypeGL.TextureAtlas
                      , Bindings.FreetypeGL.Vector
-                     , Bindings.GLEW.Init
+  if !os(osx)
+    exposed-modules:   Bindings.GLEW.Init
   other-modules:       Paths_bindings_freetype_gl
   build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2
   default-language:    Haskell2010
-  extra-libraries:     GLEW
+  if !os(osx)
+    extra-libraries:     GLEW
   ghc-options:         -Wall
   include-dirs:        freetype-gl/
   cc-options:          -g -Wall
