@@ -5,7 +5,7 @@
 
 module Bindings.FreetypeGL.TextureAtlas where
 
-import Foreign.C.Types (CUInt(..), CSize(..), CChar(..))
+import Foreign.C.Types (CInt(..), CUInt(..), CSize(..), CChar(..))
 import Foreign.Ptr (FunPtr, Ptr, plusPtr)
 import Foreign.Storable (Storable(..))
 import Bindings.FreetypeGL.Vec234
@@ -18,6 +18,7 @@ import Bindings.FreetypeGL.Vec234
 #field used , CSize
 #field id , CUInt
 #field data , Ptr CChar
+#field p_needs_upload , CInt
 
 #stoptype
 
