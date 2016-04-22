@@ -1,12 +1,20 @@
 module Bindings.FreetypeGL.Paths
-    ( textShaderFragPath
-    , textShaderVertPath
+    ( textShaderFrag
+    , textShaderVert
+    , textDistanceFieldShaderFrag
+    , textDistanceFieldShaderVert
     ) where
 
 import Paths_bindings_freetype_gl (getDataFileName)
 
-textShaderVertPath :: IO FilePath
-textShaderVertPath = getDataFileName "freetype-gl/shaders/text.vert"
+textShaderVert :: IO FilePath
+textShaderVert = getDataFileName "freetype-gl/shaders/text.vert"
 
-textShaderFragPath :: IO FilePath
-textShaderFragPath = getDataFileName "freetype-gl/shaders/text.frag"
+textShaderFrag :: IO FilePath
+textShaderFrag = getDataFileName "freetype-gl/shaders/text.frag"
+
+textDistanceFieldShaderVert :: IO FilePath
+textDistanceFieldShaderVert = getDataFileName "freetype-gl/shaders/text-distance-field.vert"
+
+textDistanceFieldShaderFrag :: IO FilePath
+textDistanceFieldShaderFrag = getDataFileName "freetype-gl/shaders/text-distance-field.frag"

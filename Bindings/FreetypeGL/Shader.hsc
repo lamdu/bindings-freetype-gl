@@ -5,6 +5,7 @@
 
 module Bindings.FreetypeGL.Shader where
 
+import Bindings.FreetypeGL.Vec234
 import Bindings.FreetypeGL.Mat4
 import Foreign.C.String (CString)
 import Foreign.C.Types (CUInt(..))
@@ -17,3 +18,4 @@ import Foreign.Ptr (Ptr, FunPtr)
 #ccall shader_load, CString -> CString -> IO <GLuint>
 
 #ccall wrapper__bind_text_shader_uniforms, <GLuint> -> Ptr <mat4> -> Ptr <mat4> -> Ptr <mat4> -> IO ()
+#ccall wrapper__bind_distance_field_shader_uniforms, <GLuint> -> Ptr <vec4> -> Ptr <mat4> -> Ptr <mat4> -> Ptr <mat4> -> IO ()

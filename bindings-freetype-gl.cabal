@@ -17,6 +17,8 @@ data-files:          freetype-gl/shaders/cube.frag
                    , freetype-gl/shaders/distance-field-2.frag
                    , freetype-gl/shaders/distance-field.frag
                    , freetype-gl/shaders/distance-field.vert
+                   , freetype-gl/shaders/text-distance-field.frag
+                   , freetype-gl/shaders/text-distance-field.vert
                    , freetype-gl/shaders/text.frag
                    , freetype-gl/shaders/text.vert
                    , freetype-gl/shaders/v3f-c4f.frag
@@ -51,6 +53,8 @@ library
                      , freetype-gl/texture-font.c
                      , freetype-gl/text-buffer.c
                      , freetype-gl/font-manager.c
+                     , freetype-gl/distance-field.c
+                     , freetype-gl/edtaa3func.c
                      , freetype-gl/vector.c
                      , freetype-gl/mat4.c
                      , freetype-gl/shader.c

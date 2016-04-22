@@ -19,6 +19,7 @@ import Bindings.FreetypeGL.Vec234
 #field id , CUInt
 #field data , Ptr CChar
 #field p_needs_upload , CInt
+#field p_distance_field , CInt
 
 #stoptype
 
