@@ -11,6 +11,9 @@ copyright:           2016 Eyal Lotem
 category:            Graphics, Fonts, Bindings
 build-type:          Custom
 extra-source-files:  README.md
+                     windows/glew.c
+                     windows/GL/glew.h
+                     windows/GL/wglew.h
 
 data-files:          freetype-gl/shaders/cube.frag
                    , freetype-gl/shaders/cube.vert
@@ -43,7 +46,7 @@ library
   other-modules:       Paths_bindings_freetype_gl
   build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2
   default-language:    Haskell2010
-  if !os(osx)
+  if !os(osx) && !os(windows)
     extra-libraries:     GLEW
   ghc-options:         -Wall
   include-dirs:        freetype-gl/
@@ -63,6 +66,13 @@ library
                      , freetype-gl/vertex-attribute.c
                      , freetype-gl/platform.c
                      , cbits/wrappers.c
+
+  if os(windows)
+    c-sources:       windows/glew.c
+    cc-options:      -Wno-attributes -DGLEW_STATIC
+    cpp-options:     -DGLEW_STATIC
+    include-dirs:    windows/
+                   , windows/GL
 
 source-repository head
   type:     git
