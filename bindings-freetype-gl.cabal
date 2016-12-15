@@ -28,6 +28,7 @@ data-files:          freetype-gl/shaders/cube.frag
                    , freetype-gl/shaders/v3f-c4f.vert
                    , freetype-gl/shaders/v3f-t2f-c4f.frag
                    , freetype-gl/shaders/v3f-t2f-c4f.vert
+                   , shaders/distance-field.vert
 cabal-version:       >=1.10
 
 library

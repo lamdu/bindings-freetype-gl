@@ -14,7 +14,7 @@ textShaderFrag :: IO FilePath
 textShaderFrag = getDataFileName "freetype-gl/shaders/text.frag"
 
 textDistanceFieldShaderVert :: IO FilePath
-textDistanceFieldShaderVert = getDataFileName "freetype-gl/shaders/text-distance-field.vert"
+textDistanceFieldShaderVert = getDataFileName "shaders/text-distance-field.vert"
 
 textDistanceFieldShaderFrag :: IO FilePath
 textDistanceFieldShaderFrag = getDataFileName "freetype-gl/shaders/text-distance-field.frag"
