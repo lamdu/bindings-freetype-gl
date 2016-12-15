@@ -35,9 +35,7 @@ library
   exposed-modules:     Bindings.FreetypeGL.Paths
                      , Bindings.FreetypeGL.TextBuffer
                      , Bindings.FreetypeGL.Vec234
-                     , Bindings.FreetypeGL.Mat4
                      , Bindings.FreetypeGL.Markup
-                     , Bindings.FreetypeGL.Shader
                      , Bindings.FreetypeGL.FontManager
                      , Bindings.FreetypeGL.TextureFont
                      , Bindings.FreetypeGL.TextureAtlas
@@ -60,7 +58,6 @@ library
                      , freetype-gl/distance-field.c
                      , freetype-gl/edtaa3func.c
                      , freetype-gl/vector.c
-                     , freetype-gl/mat4.c
                      , freetype-gl/shader.c
                      , freetype-gl/utf8-utils.c
                      , freetype-gl/vertex-buffer.c
