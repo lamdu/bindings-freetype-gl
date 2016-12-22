@@ -17,7 +17,6 @@ import Bindings.FreetypeGL.TextureFont
 #field size , CFloat
 #field bold , CInt
 #field italic , CInt
-#field rise , CFloat
 #field spacing , CFloat
 #field gamma , CFloat
 #field foreground_color , <vec4>

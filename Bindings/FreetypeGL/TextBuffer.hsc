@@ -5,10 +5,10 @@
 
 module Bindings.FreetypeGL.TextBuffer where
 
-import Bindings.FreetypeGL.FontManager
 import Bindings.FreetypeGL.Markup
 import Bindings.FreetypeGL.Vec234
 import Bindings.FreetypeGL.Vector
+import Bindings.FreetypeGL.VertexBuffer
 import Foreign.C.String (CString)
 import Foreign.C.Types (CChar, CSize(..), CFloat(..), CUInt(..))
 import Foreign.Ptr (FunPtr, Ptr, plusPtr)
@@ -17,13 +17,10 @@ import Foreign.Storable (Storable(..))
 #num LCD_FILTERING_ON
 #num LCD_FILTERING_OFF
 
-#opaque_t vertex_buffer_t
-
 #integral_t GLuint
 
 #starttype text_buffer_t
 #field buffer        , Ptr <vertex_buffer_t>
-#field manager       , Ptr <font_manager_t>
 #field base_color    , <vec4>
 #field origin        , <vec2>
 #field last_pen_y    , CFloat
@@ -33,9 +30,6 @@ import Foreign.Storable (Storable(..))
 #field lines         , Ptr <vector_t>
 #field line_ascender , CFloat
 #field line_descender, CFloat
-#field shader        , <GLuint>
-#field shader_texture, <GLuint>
-#field shader_pixel  , <GLuint>
 #stoptype
 
 #starttype glyph_vertex_t
@@ -62,10 +56,8 @@ import Foreign.Storable (Storable(..))
 #num ALIGN_CENTER
 #num ALIGN_RIGHT
 
-#ccall text_buffer_new              , CSize -> CString -> CString -> IO (Ptr <text_buffer_t>)
-#ccall text_buffer_new_with_program , CSize -> <GLuint> -> IO (Ptr <text_buffer_t>)
+#ccall text_buffer_new              , IO (Ptr <text_buffer_t>)
 #ccall text_buffer_delete           , Ptr <text_buffer_t> -> IO ()
-#ccall text_buffer_render           , Ptr <text_buffer_t> -> IO ()
 #ccall text_buffer_add_text         , Ptr <text_buffer_t> -> Ptr <vec2> -> Ptr <markup_t> -> CString -> CSize -> IO ()
 #ccall text_buffer_add_char         , Ptr <text_buffer_t> -> Ptr <vec2> -> Ptr <markup_t> -> Ptr CChar -> Ptr CChar -> IO ()
 #ccall text_buffer_align            , Ptr <text_buffer_t> -> Ptr <vec2> -> <Align> -> IO ()

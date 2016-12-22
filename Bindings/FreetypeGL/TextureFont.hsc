@@ -9,7 +9,7 @@ import Bindings.FreetypeGL.TextureAtlas
 import Bindings.FreetypeGL.Vector
 import Data.Word
 import Foreign.C.String (CString)
-import Foreign.C.Types (CChar, CSize(..), CFloat(..), CInt(..))
+import Foreign.C.Types (CChar, CSize(..), CFloat(..), CInt(..), CUInt(..))
 import Foreign.Marshal.Array (peekArray, pokeArray)
 import Foreign.Ptr (FunPtr, Ptr, plusPtr)
 import Foreign.Storable (Storable(..))
@@ -20,6 +20,13 @@ import Foreign.Storable (Storable(..))
 #field kerning   , CFloat
 
 #stoptype
+
+#integral_t rendermode_t
+#num RENDER_NORMAL
+#num RENDER_OUTLINE_EDGE
+#num RENDER_OUTLINE_POSITIVE
+#num RENDER_OUTLINE_NEGATIVE
+#num RENDER_SIGNED_DISTANCE_FIELD
 
 #starttype texture_glyph_t
 
@@ -35,9 +42,7 @@ import Foreign.Storable (Storable(..))
 #field s1                , CFloat
 #field t1                , CFloat
 #field kerning           , Ptr <vector_t>
--- Glyph outline type (0 = None, 1 = line, 2 = inner, 3 = outer):
-#field outline_type      , CInt
-#field outline_thickness , CFloat
+#field rendermode        , <rendermode_t>
 
 #stoptype
 
@@ -65,8 +70,7 @@ import Foreign.Storable (Storable(..))
 -- Whether to use autohint when rendering font
 #field hinting , CInt
 
--- Outline type (0 = None, 1 = line, 2 = inner, 3 = outer)
-#field outline_type , CInt
+#field rendermode , <rendermode_t>
 
 #field outline_thickness , CFloat
 

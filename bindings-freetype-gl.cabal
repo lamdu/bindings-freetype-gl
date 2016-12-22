@@ -1,7 +1,6 @@
 name:                bindings-freetype-gl
 version:             0.1.0.0
 synopsis:            Haskell bindings and embedding of freetype-gl
-description:         Please see README.md
 homepage:            https://github.com/Peaker/bindings-freetype-gl#readme
 license:             BSD3
 license-file:        LICENSE
@@ -19,26 +18,24 @@ data-files:          freetype-gl/shaders/cube.frag
                    , freetype-gl/shaders/distance-field-2.frag
                    , freetype-gl/shaders/distance-field.frag
                    , freetype-gl/shaders/distance-field.vert
-                   , freetype-gl/shaders/text-distance-field.frag
-                   , freetype-gl/shaders/text-distance-field.vert
                    , freetype-gl/shaders/text.frag
                    , freetype-gl/shaders/text.vert
                    , freetype-gl/shaders/v3f-c4f.frag
                    , freetype-gl/shaders/v3f-c4f.vert
                    , freetype-gl/shaders/v3f-t2f-c4f.frag
                    , freetype-gl/shaders/v3f-t2f-c4f.vert
-                   , shaders/distance-field.vert
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Bindings.FreetypeGL.Paths
-                     , Bindings.FreetypeGL.TextBuffer
-                     , Bindings.FreetypeGL.Vec234
+  exposed-modules:     Bindings.FreetypeGL.FontManager
                      , Bindings.FreetypeGL.Markup
-                     , Bindings.FreetypeGL.FontManager
-                     , Bindings.FreetypeGL.TextureFont
+                     , Bindings.FreetypeGL.Paths
+                     , Bindings.FreetypeGL.TextBuffer
                      , Bindings.FreetypeGL.TextureAtlas
+                     , Bindings.FreetypeGL.TextureFont
+                     , Bindings.FreetypeGL.Vec234
                      , Bindings.FreetypeGL.Vector
+                     , Bindings.FreetypeGL.VertexBuffer
   if !os(osx)
     exposed-modules:   Bindings.GLEW.Init
   other-modules:       Paths_bindings_freetype_gl
@@ -57,7 +54,6 @@ library
                      , freetype-gl/distance-field.c
                      , freetype-gl/edtaa3func.c
                      , freetype-gl/vector.c
-                     , freetype-gl/shader.c
                      , freetype-gl/utf8-utils.c
                      , freetype-gl/vertex-buffer.c
                      , freetype-gl/vertex-attribute.c

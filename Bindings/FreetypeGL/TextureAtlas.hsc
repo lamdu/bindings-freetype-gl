@@ -5,7 +5,7 @@
 
 module Bindings.FreetypeGL.TextureAtlas where
 
-import Foreign.C.Types (CInt(..), CUInt(..), CSize(..), CChar(..))
+import Foreign.C.Types (CUInt(..), CSize(..), CChar(..))
 import Foreign.Ptr (FunPtr, Ptr, plusPtr)
 import Foreign.Storable (Storable(..))
 import Bindings.FreetypeGL.Vec234
@@ -18,14 +18,11 @@ import Bindings.FreetypeGL.Vec234
 #field used , CSize
 #field id , CUInt
 #field data , Ptr CChar
-#field p_needs_upload , CInt
-#field p_distance_field , CInt
 
 #stoptype
 
 #ccall texture_atlas_new , CSize -> CSize -> CSize -> IO (Ptr <texture_atlas_t>)
 #ccall texture_atlas_delete , Ptr <texture_atlas_t> -> IO ()
-#ccall texture_atlas_upload , Ptr <texture_atlas_t> -> IO ()
 #ccall wrapper__texture_atlas_get_region , Ptr <ivec4> -> Ptr <texture_atlas_t> -> CSize -> CSize -> IO ()
 #ccall texture_atlas_set_region , Ptr <texture_atlas_t> -> CSize -> CSize -> CSize -> CSize -> Ptr CChar -> CSize -> IO ()
 #ccall texture_atlas_clear , Ptr <texture_atlas_t> -> IO ()
