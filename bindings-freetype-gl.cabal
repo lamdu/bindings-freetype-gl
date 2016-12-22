@@ -10,8 +10,7 @@ maintainer:          eyal.lotem@gmail.com
 copyright:           2016 Eyal Lotem
 category:            Graphics, Fonts, Bindings
 build-type:          Custom
-extra-source-files:  README.md
-                     windows/glew.c
+extra-source-files:  windows/glew.c
                      windows/GL/glew.h
                      windows/GL/wglew.h
 
