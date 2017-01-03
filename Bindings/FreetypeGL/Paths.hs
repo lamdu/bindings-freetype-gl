@@ -3,6 +3,7 @@ module Bindings.FreetypeGL.Paths
     , textShaderVert
     , textDistanceFieldShaderFrag
     , textDistanceFieldShaderVert
+    , textTwoPassAFrag, textTwoPassBFrag
     ) where
 
 import Paths_bindings_freetype_gl (getDataFileName)
@@ -18,3 +19,9 @@ textDistanceFieldShaderVert = getDataFileName "freetype-gl/shaders/distance-fiel
 
 textDistanceFieldShaderFrag :: IO FilePath
 textDistanceFieldShaderFrag = getDataFileName "freetype-gl/shaders/distance-field.frag"
+
+textTwoPassAFrag :: IO FilePath
+textTwoPassAFrag = getDataFileName "freetype-gl/shaders/twopass-a.frag"
+
+textTwoPassBFrag :: IO FilePath
+textTwoPassBFrag = getDataFileName "freetype-gl/shaders/twopass-b.frag"

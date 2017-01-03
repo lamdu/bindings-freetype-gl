@@ -24,6 +24,8 @@ data-files:          freetype-gl/shaders/cube.frag
                    , freetype-gl/shaders/v3f-c4f.vert
                    , freetype-gl/shaders/v3f-t2f-c4f.frag
                    , freetype-gl/shaders/v3f-t2f-c4f.vert
+                   , freetype-gl/shaders/twopass-a.frag
+                   , freetype-gl/shaders/twopass-b.frag
 cabal-version:       >=1.10
 
 library
