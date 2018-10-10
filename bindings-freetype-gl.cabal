@@ -13,25 +13,12 @@ extra-source-files:  windows/glew.c
                      windows/GL/glew.h
                      windows/GL/wglew.h
 
-data-files:          freetype-gl/shaders/cube.frag
-                   , freetype-gl/shaders/cube.vert
-                   , freetype-gl/shaders/distance-field-2.frag
-                   , freetype-gl/shaders/distance-field.frag
-                   , freetype-gl/shaders/distance-field.vert
-                   , freetype-gl/shaders/text.frag
-                   , freetype-gl/shaders/text.vert
-                   , freetype-gl/shaders/v3f-c4f.frag
-                   , freetype-gl/shaders/v3f-c4f.vert
-                   , freetype-gl/shaders/v3f-t2f-c4f.frag
-                   , freetype-gl/shaders/v3f-t2f-c4f.vert
-                   , freetype-gl/shaders/twopass-a.frag
-                   , freetype-gl/shaders/twopass-b.frag
 cabal-version:       >=1.10
 
 library
   exposed-modules:     Bindings.FreetypeGL.FontManager
                      , Bindings.FreetypeGL.Markup
-                     , Bindings.FreetypeGL.Paths
+                     , Bindings.FreetypeGL.Shaders
                      , Bindings.FreetypeGL.TextBuffer
                      , Bindings.FreetypeGL.TextureAtlas
                      , Bindings.FreetypeGL.TextureFont
@@ -41,7 +28,8 @@ library
   if !os(osx)
     exposed-modules:   Bindings.GLEW.Init
   other-modules:       Paths_bindings_freetype_gl
-  build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2
+  build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2,
+                       bytestring, file-embed
   default-language:    Haskell2010
   if !os(osx) && !os(windows)
     extra-libraries:     GLEW
