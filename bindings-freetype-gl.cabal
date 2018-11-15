@@ -1,8 +1,10 @@
+cabal-version:       2.4
 name:                bindings-freetype-gl
 version:             0.1.0.0
 synopsis:            Haskell bindings and embedding of freetype-gl
 homepage:            https://github.com/Peaker/bindings-freetype-gl#readme
-license:             BSD3
+description:         Low-level haskell bindings for the freetype-gl library
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Eyal Lotem
 maintainer:          eyal.lotem@gmail.com
@@ -13,7 +15,10 @@ extra-source-files:  windows/glew.c
                      windows/GL/glew.h
                      windows/GL/wglew.h
 
-cabal-version:       >=1.10
+custom-setup
+  setup-depends:
+                 base  >= 4.5
+               , Cabal >= 2.4
 
 library
   exposed-modules:     Bindings.FreetypeGL.FontManager
@@ -27,9 +32,13 @@ library
                      , Bindings.FreetypeGL.VertexBuffer
   if !os(osx)
     exposed-modules:   Bindings.GLEW.Init
+  autogen-modules:     Paths_bindings_freetype_gl
   other-modules:       Paths_bindings_freetype_gl
-  build-depends:       base >= 4.7 && < 5, bindings-DSL == 1.0.*, freetype2 >= 0.1.2,
-                       bytestring, file-embed
+  build-depends:       base >= 4.7 && < 5
+                     , bindings-DSL == 1.0.*
+                     , freetype2 >= 0.2
+                     , bytestring
+                     , file-embed
   default-language:    Haskell2010
   if !os(osx) && !os(windows)
     extra-libraries:     GLEW
