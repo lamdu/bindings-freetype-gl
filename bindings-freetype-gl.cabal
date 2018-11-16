@@ -14,6 +14,17 @@ build-type:          Custom
 extra-source-files:  windows/glew.c
                      windows/GL/glew.h
                      windows/GL/wglew.h
+                     freetype-gl/font-manager.h
+                     freetype-gl/markup.h
+                     freetype-gl/opengl.h
+                     freetype-gl/text-buffer.h
+                     freetype-gl/texture-atlas.h
+                     freetype-gl/texture-font.h
+                     freetype-gl/utf8-utils.h
+                     freetype-gl/vec234.h
+                     freetype-gl/vector.h
+                     freetype-gl/vertex-attribute.h
+                     freetype-gl/vertex-buffer.h
 
 custom-setup
   setup-depends:
