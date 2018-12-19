@@ -1,4 +1,4 @@
-cabal-version:       2.4
+cabal-version:       2.2
 name:                bindings-freetype-gl
 version:             0.1.0.0
 synopsis:            Haskell bindings and embedding of freetype-gl
@@ -29,7 +29,7 @@ extra-source-files:  windows/glew.c
 custom-setup
   setup-depends:
                  base  >= 4.5
-               , Cabal >= 2.4
+               , Cabal >= 2.2
 
 library
   exposed-modules:     Bindings.FreetypeGL.FontManager
