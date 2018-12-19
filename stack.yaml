@@ -1,9 +1,9 @@
-resolver: lts-12.0
+resolver: lts-12.24
 
 packages:
 - '.'
 - location:
     git: https://github.com/lamdu/freetype2
-    commit: 71941659a29fe353bf975aefeb1805417c8ab364
+    commit: 046328d92312d65638440132c016a3081d9c32a4
   extra-dep: True
 extra-deps: []
