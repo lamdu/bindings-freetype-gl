@@ -17,7 +17,7 @@ prepareBuild verbosity =
                 return ()
             else
                 -- Stack/cabal based builds currently require updating the submodules
-                rawSystemExit verbosity "base" ["prepare_submodule.sh"]
+                rawSystemExit verbosity "bash" ["prepare_submodule.sh"]
 
 main =
     defaultMainWithHooks simpleUserHooks
