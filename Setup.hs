@@ -2,6 +2,7 @@ import Distribution.Verbosity
 import Distribution.Simple
 import Distribution.Simple.Setup
 import Distribution.Simple.Utils
+import Distribution.System
 import System.Directory (doesFileExist)
 
 prepareBuild :: Verbosity -> IO ()
@@ -16,8 +17,10 @@ prepareBuild verbosity =
                 -- hence avoiding invocations of git is necessary.
                 return ()
             else
-                -- Stack/cabal based builds currently require updating the submodules
-                rawSystemExit verbosity "bash" ["prepare_submodule.sh"]
+            -- Stack/cabal based builds currently require updating the submodules
+            if buildOS == Windows
+            then rawSystemExit verbosity "stack" ["exec", "--", "bash", "prepare_submodule.sh"]
+            else rawSystemExit verbosity "bash" ["prepare_submodule.sh"]
 
 main =
     defaultMainWithHooks simpleUserHooks
