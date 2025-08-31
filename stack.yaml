@@ -1,6 +1,7 @@
-resolver: lts-23.28
+resolver: lts-24.8
 packages:
 - '.'
 extra-deps:
-- git: https://github.com/lamdu/freetype2
-  commit: 046328d92312d65638440132c016a3081d9c32a4
+- github: lamdu/freetype2
+  commit: f59a2ab94621364db78a50fdd23c2b11e773a503
+- storable-offset-0.1.0.0
