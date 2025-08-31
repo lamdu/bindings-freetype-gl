@@ -1,9 +1,19 @@
+{-# LANGUAGE CPP #-}
+
 import Distribution.Verbosity
 import Distribution.Simple
 import Distribution.Simple.Setup
 import Distribution.Simple.Utils
 import Distribution.System
 import System.Directory (doesFileExist)
+
+-- Compatibility wrapper for rawSystemExit
+rawSystemExitCompat :: Verbosity -> String -> [String] -> IO ()
+#if MIN_VERSION_Cabal(3,12,0)
+rawSystemExitCompat verbosity = rawSystemExit verbosity Nothing
+#else
+rawSystemExitCompat = rawSystemExit
+#endif
 
 prepareBuild :: Verbosity -> IO ()
 prepareBuild verbosity =
@@ -19,8 +29,8 @@ prepareBuild verbosity =
             else
             -- Stack/cabal based builds currently require updating the submodules
             if buildOS == Windows
-            then rawSystemExit verbosity "stack" ["exec", "--", "bash", "prepare_submodule.sh"]
-            else rawSystemExit verbosity "bash" ["prepare_submodule.sh"]
+            then rawSystemExitCompat verbosity "stack" ["exec", "--", "bash", "prepare_submodule.sh"]
+            else rawSystemExitCompat verbosity "bash" ["prepare_submodule.sh"]
 
 main =
     defaultMainWithHooks simpleUserHooks

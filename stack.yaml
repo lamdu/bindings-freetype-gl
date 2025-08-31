@@ -1,7 +1,8 @@
-resolver: lts-24.8
+resolver: nightly-2025-08-31
 packages:
 - '.'
 extra-deps:
 - github: lamdu/freetype2
   commit: f59a2ab94621364db78a50fdd23c2b11e773a503
 - storable-offset-0.1.0.0
+allow-newer: true
