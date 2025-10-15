@@ -9,7 +9,7 @@ import System.Directory (doesFileExist)
 
 -- Compatibility wrapper for rawSystemExit
 rawSystemExitCompat :: Verbosity -> String -> [String] -> IO ()
-#if MIN_VERSION_Cabal(3,12,0)
+#if MIN_VERSION_Cabal(3,13,0)
 rawSystemExitCompat verbosity = rawSystemExit verbosity Nothing
 #else
 rawSystemExitCompat = rawSystemExit
